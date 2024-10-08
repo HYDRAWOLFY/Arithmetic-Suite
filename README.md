@@ -1,6 +1,6 @@
 
 # 🔢 Arithmetic Suite 📚
-*A Comprehensive Python Library for Efficient Arithmetic and Mathematical Operations*
+*A Comprehensive Library of Python Scripts for Efficient Arithmetic and Mathematical Operations*
 
 ---
 
