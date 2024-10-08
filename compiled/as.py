@@ -1,6 +1,7 @@
 
 #This is the Intergrated Version of Arithmetic Suite.
 #this is also used to make the exe.
+
 import math
 
 
@@ -13,6 +14,7 @@ print("Enter 3 for Using Calculator")
 print("Enter 4 for Finding Area of Circle.")
 print("Enter 5 for Using Arithmetic Progression Tools.")
 print("Enter 6 for Finding Simple Interest.")
+print("Enter 7 for Calculating Compound Interest.")
 
 command = input("Enter Desired Mode of operation: ")
 
@@ -93,6 +95,10 @@ def si(p,r,t):
     # calculating simple interest
     return p*(1+r*t)
     
+
+def ci(p,r,n,t):
+    a = p * (1 + r/(n*100)) ** (n * t)
+    return round((a),2)
 
 if command == "1":
     print("<--------------AREA-OF-TRIANGLE----------------->")    #Area of Triangle Module(area_triangle)
@@ -180,6 +186,21 @@ elif command == "6":
 
     print(f"The Simple Interest Should be {Si} {unit}.")
     print("Press 'Enter' to exit...")
+    
+elif command == "7":
+
+    print("<----------------COMPOUND-INTEREST----------------->")
+
+    p = float(input("Enter The 'PRINCIPAL' or The Initial Amount: "))
+    r = float(input("Enter The Annual Rate of Interest: "))
+    n = float(input("Enter The Number of Times the Interest is Compounded Annually: "))
+    t = float(input("For How Much Time is the Money Invested or Borrowed?:"))
+    unit = input("Enter Unit of Currency: ")
+
+    a = ci(p,r,n,t)
+
+    print(f"The Interest Should be: {a} {unit}")
+    int("Press 'Enter' to exit... ")
 
 else:
     print("The Type of operator you want is not available right now or is yet to be implemented.")

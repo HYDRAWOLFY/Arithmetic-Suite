@@ -46,9 +46,10 @@ Perform basic arithmetic operations:
 
 ## 📋 **To-Do List**
 - [✅] Compile to an executable (.exe) for easier use without Python installed.
-- [ ] Add modules to calculate:
+- [✅] Add modules to calculate:
     - [✅] **Simple Interest**. 
-    - [ ] **Compound Interest**.
+    - [✅] **Compound Interest**.
+- [ ] Add a **Re-Runner** Script(Enabling the user to re-run the program without quiting.)
 - [ ] Expand suite with more advanced mathematical functions.
 
 ---
