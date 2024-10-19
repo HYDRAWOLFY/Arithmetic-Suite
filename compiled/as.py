@@ -3,21 +3,11 @@
 #this is also used to make the exe.
 import math
 
+# boolean variable 
+quit = False
 
-print("<---------------------ARITHMETIC-SUITE------------------------->")
-
-print("What would you like to do? ")
-print("Enter 1 for Finding Area of Triangle.")
-print("Enter 2 for Finding Area of Rectangle.")
-print("Enter 3 for Using Calculator")
-print("Enter 4 for Finding Area of Circle.")
-print("Enter 5 for Using Arithmetic Progression Tools.")
-print("Enter 6 for Finding Simple Interest.")
-
-command = input("Enter Desired Mode of operation: ")
-
+#-------------------------------------------------------------------#
 # Functions
-
 def areaoftriangle(h,b):
     area = (1/2*b*h)
 
@@ -90,97 +80,121 @@ def ap():
         sum_of_ap_to_nth_term()
 
 def si(p,r,t):
+
     # calculating simple interest
     return p*(1+r*t)
+#-----------------------------------------------------------------------------------------# 
+
+# added this in a while loop
+while not quit:
+    # these will run till quit is true
+    print("<---------------------ARITHMETIC-SUITE------------------------->")
+
+    print("What would you like to do? ")
+    print("Enter 1 for Finding Area of Triangle.")
+    print("Enter 2 for Finding Area of Rectangle.")
+    print("Enter 3 for Using Calculator")
+    print("Enter 4 for Finding Area of Circle.")
+    print("Enter 5 for Using Arithmetic Progression Tools.")
+    print("Enter 6 for Finding Simple Interest.")
+    print("Enter q to quit program.")
+    command = input("Enter Desired Mode of operation: ")
+
+    # command checker
+    if command == "1":
+        print("<--------------AREA-OF-TRIANGLE----------------->")    #Area of Triangle Module(area_triangle)
+
+        # taking user input
+        h = float(input("Enter the Height of the Triangle: "))
+        b = float(input("Enter the Lenght of Base of the Triangle: "))
+        unit = input("Enter the Unit of measurement(either cm,mm,m,etc): ")
+
+        # calculated area
+        area = areaoftriangle(h,b)
+        
+        # printing the answer
+        print(f"THE AREA FOR THE TRIANGLE SHOULD BE: {area} {unit}^2")
+        input("Press 'Enter' to exit..")
+
+    elif command == "2":
+        # taking user input
     
+        print("<----------------AREA-OF-RECTANGLE------------------->") 
 
-if command == "1":
-    print("<--------------AREA-OF-TRIANGLE----------------->")    #Area of Triangle Module(area_triangle)
+        l = float(input("Enter Lenght of the Rectangle:"))
+        b = float(input("Enter the Breadth of the Rectangle:"))
+        unit = input("Enter the Unit the lenght and breadth of the Rectangle are in(either cm,mm,m,etc): ")
 
-    # taking user input
-    h = float(input("Enter the Height of the Triangle: "))
-    b = float(input("Enter the Lenght of Base of the Triangle: "))
-    unit = input("Enter the Unit of measurement(either cm,mm,m,etc): ")
+        # calling areaofrec() function 
+        area = areaofrec(l,b)
 
-    # calculated area
-    area = areaoftriangle(h,b)
+        # printing the result
+        print(f"The Area of the Rectangle should be : {area} {unit}^2")
+        input("Press 'Enter' to exit...")
+
+    elif command == "3":
+
+        print("<---------------CALCULATOR----------------->")   #Simple Python calc(py_calc)
+        
+        print("Enter '+' for Addition")
+        print("Enter '-' for Subtraction")   
+        print("Enter '/' for Division")
+        print("Enter '*' for Multiplication")
+
+        # taking user input
+        operator = str(input("entrator either '+ - * /': "))
+        num1 = int(input("Enter Number one: "))
+        num2 = int(input("Enter Second one: "))
+
+        # calling calc() function
+        result = calc(num1,num2,operator)
     
-    # printing the answer
-    print(f"THE AREA FOR THE TRIANGLE SHOULD BE: {area} {unit}^2")
-    input("Press 'Enter' to exit..")
-
-elif command == "2":
-    # taking user input
+        #printing the result
+        print(f"The correct Answer should be: {result}")
+        input("Press 'Enter' to exit...")
     
-    print("<----------------AREA-OF-RECTANGLE------------------->") 
+    elif command == "4":
 
-    l = float(input("Enter Lenght of the Rectangle:"))
-    b = float(input("Enter the Breadth of the Rectangle:"))
-    unit = input("Enter the Unit the lenght and breadth of the Rectangle are in(either cm,mm,m,etc): ")
+        print("<---------------AREA-OF-CIRCLE----------------->")       #Area if Circle Module(area_circle)
 
-    # calling areaofrec() function 
-    area = areaofrec(l,b)
+        # taking user input
+        radius = int(input("Enter the Radius of the Circle you want to find the Area of: "))
+        unit = str(input("Enter the Unit of the Radius(either cm,mm,m): "))
 
-    # printing the result
-    print(f"The Area of the Rectangle should be : {area} {unit}^2")
-    input("Press 'Enter' to exit...")
+        # calculated area
+        area = areaofcircle(radius)
 
-elif command == "3":
+        print(f"The Area of the Circle should be: {area} {unit}^2 ")
+        input("Press 'Enter' to exit...")
 
-    print("<---------------CALCULATOR----------------->")   #Simple Python calc(py_calc)
-    
-    print("Enter '+' for Addition")
-    print("Enter '-' for Subtraction")   
-    print("Enter '/' for Division")
-    print("Enter '*' for Multiplication")
-
-    # taking user input
-    operator = str(input("entrator either '+ - * /': "))
-    num1 = int(input("Enter Number one: "))
-    num2 = int(input("Enter Second one: "))
-
-    # calling calc() function
-    result = calc(num1,num2,operator)
-    
-    #printing the result
-    print(f"The correct Answer should be: {result}")
-    input("Press 'Enter' to exit...")
-    
-elif command == "4":
-
-    print("<---------------AREA-OF-CIRCLE----------------->")       #Area if Circle Module(area_circle)
-
-    # taking user input
-    radius = int(input("Enter the Radius of the Circle you want to find the Area of: "))
-    unit = str(input("Enter the Unit of the Radius(either cm,mm,m): "))
-
-    # calculated area
-    area = areaofcircle(radius)
-
-    print(f"The Area of the Circle should be: {area} {unit}^2 ")
-    input("Press 'Enter' to exit...")
-
-elif command == "5":
-    # calling the ap function
-    ap()
+    elif command == "5":
+        # calling the ap function
+        ap()
        
-elif command == "6":
+    elif command == "6":
 
-    print("<------------SIMPLE-INTEREST-------------->") #Simple Interest Module
+        print("<------------SIMPLE-INTEREST-------------->") #Simple Interest Module
 
-    # taking user input
-    p = int(input("Enter Principle: "))
-    r = int(input("Enter Annual Interest Rate: "))
-    t = int(input("Enter Time(in years)): "))
-    unit = input("What is the Unit of Currency?: ")
+        # taking user input
+        p = int(input("Enter Principle: "))
+        r = int(input("Enter Annual Interest Rate: "))
+        t = int(input("Enter Time(in years)): "))
+        unit = input("What is the Unit of Currency?: ")
 
-    # calling si() function
-    Si = si(p,r,t)
+        # calling si() function
+        Si = si(p,r,t)
+        
+
+        print(f"The Simple Interest Should be {Si} {unit}.")
+        print("Press 'Enter' to exit...")
     
+    # this will change quit value from false to true and it will break while loop (program will end)
+    elif command == 'q':
+        quit = True
+        
 
-    print(f"The Simple Interest Should be {Si} {unit}.")
-    print("Press 'Enter' to exit...")
+    else:
+        print("The Type of operator you want is not available right now or is yet to be implemented.")
+        input("Press 'Enter' to exit...")
 
-else:
-    print("The Type of operator you want is not available right now or is yet to be implemented.")
-    input("Press 'Enter' to exit...")
+
